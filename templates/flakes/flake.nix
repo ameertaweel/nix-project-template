@@ -25,14 +25,19 @@
         ];
       };
   in {
-    # Custom packages
-    # Acessible through `nix build` and `nix shell`
+    # Custom packages, that can be defined similarly to ones from Nixpkgs
+    # You can build them using:
+    #   - New CLI: `nix build .#PACKAG_NAME`
+    #   - Old CLI: `nix-build ./pkgs --attr PACKAG_NAME`
     packages = forAllSystems (system:
       import ./pkgs {
         pkgs = mkPkgs system;
       });
-    # Development environment
-    # Acessible through `nix develop`
+
+    # Development Environment
+    # You can activate it through:
+    #   - New CLI: `nix develop`
+    #   - Old CLI: `nix-shell -A default`
     devShells = forAllSystems (system:
       import ./shell.nix {
         pkgs = mkPkgs system;

@@ -1,5 +1,5 @@
 {
-  description = "Simple Flake Template";
+  description = "Simple Nix Project Templates";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -17,9 +17,16 @@
     ];
     mkPkgs = system: import nixpkgs {inherit system;};
   in {
-    templates.default = {
-      path = ./template;
-      description = "Default simple nix flake project template.";
+    templates = {
+      default = self.outputs.templates.flakes;
+      flakes = {
+        path = ./templates/flakes;
+        description = "Simple Nix flake project template.";
+      };
+      no-flakes = {
+        path = ./templates/no-flakes;
+        description = "Simple Nix non-flake project template.";
+      };
     };
 
     # Nix files formatter (alejandra, nixfmt or nixpkgs-fmt)
