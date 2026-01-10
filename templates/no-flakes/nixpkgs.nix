@@ -12,4 +12,4 @@ let
 
   overlays = import ./overlays;
 in
-  pkgs
+pkgs

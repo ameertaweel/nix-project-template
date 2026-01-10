@@ -19,6 +19,7 @@ let
 
   # Custom packages and modifications, exported as overlays
   overlays = import ./overlays;
-in {
+in
+{
   inherit packages devShells overlays;
 }
