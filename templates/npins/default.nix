@@ -1,11 +1,11 @@
 let
-  pkgs = import ./nixpkgs.nix;
+  pkgs = import ./nix/nixpkgs.nix;
 
   # Custom packages, that can be defined similarly to ones from Nixpkgs
   # You can build them using:
   #   - New CLI: `nix build --file . packages.PACKAG_NAME`
   #   - Old CLI: `nix-build . --attr packages.PACKAG_NAME`
-  packages = import ./pkgs {
+  packages = import ./nix/pkgs {
     inherit pkgs;
   };
 
@@ -18,7 +18,7 @@ let
   };
 
   # Custom packages and modifications, exported as overlays
-  overlays = import ./overlays;
+  overlays = import ./nix/overlays;
 in
 {
   inherit packages devShells overlays;

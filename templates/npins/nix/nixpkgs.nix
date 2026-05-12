@@ -2,7 +2,7 @@ let
   sources = import ./npins;
 
   pkgs = import sources.nixpkgs-unstable {
-    config.allowUnfree = true;
+    config.allowUnfree = false;
     overlays = [
       # Add overlays our own project exports (from overlays and pkgs dir):
       overlays.modifications

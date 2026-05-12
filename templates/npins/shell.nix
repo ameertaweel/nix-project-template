@@ -3,11 +3,16 @@
 #   - New CLI: `nix develop --file shell.nix default`
 #   - Old CLI: `nix-shell -A default`
 {
-  pkgs ? (import ./nixpkgs.nix),
+  pkgs ? (import ./nix/nixpkgs.nix),
 }:
 {
   default = pkgs.mkShell {
-    nativeBuildInputs = with pkgs; [
+    nativeBuildInputs = [
+      # This project uses npins for input pinning
+      pkgs.npins
     ];
+
+    # Custom npins directory
+    NPINS_DIRECTORY = "nix/npins";
   };
 }
