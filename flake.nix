@@ -26,9 +26,10 @@
           path = ./templates/flakes;
           description = "Simple Nix flake project template.";
         };
-        no-flakes = {
-          path = ./templates/no-flakes;
-          description = "Simple Nix non-flake project template.";
+        no-flakes = self.outputs.templates.npins;
+        npins = {
+          path = ./templates/npins;
+          description = "Simple Nix non-flake project template using npins.";
         };
       };
 
