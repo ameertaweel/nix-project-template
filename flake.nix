@@ -31,6 +31,10 @@
           path = ./templates/npins;
           description = "Simple Nix non-flake project template using npins.";
         };
+        nixtamal = {
+          path = ./templates/nixtamal;
+          description = "Simple Nix non-flake project template using Nixtamal.";
+        };
       };
 
       # Nix files formatter (alejandra, nixfmt or nixpkgs-fmt)
