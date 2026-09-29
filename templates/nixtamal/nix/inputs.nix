@@ -12,4 +12,6 @@ let
 
   overlays = import ./overlays;
 in
-pkgs
+{
+  inherit pkgs;
+}
