@@ -3,7 +3,7 @@
 #   - New CLI: `nix build --file . packages.PACKAG_NAME`
 #   - Old CLI: `nix-build . --attr packages.PACKAG_NAME`
 {
-  pkgs ? (import ../nixpkgs.nix),
+  pkgs ? (import ../inputs.nix).pkgs,
 }:
 {
   # example = pkgs.callPackage ./example { };
